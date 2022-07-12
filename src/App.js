@@ -1,5 +1,13 @@
+import { Route, Routes } from "react-router-dom";
+import Main from "./components/layout/Main";
 function App() {
-  return <></>;
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Main></Main>}></Route>
+      </Routes>
+    </>
+  );
 }
 
 export default App;

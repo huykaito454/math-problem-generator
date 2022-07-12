@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ["Be Vietnam Pro", "sans-serif"],
+        body: ["Signika Negative", "sans-serif"],
       },
       colors: {
         primary: "#9a7bf7",
