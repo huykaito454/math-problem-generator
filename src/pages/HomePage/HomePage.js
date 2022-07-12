@@ -2,7 +2,7 @@ import React from "react";
 import imageHome from "../../assets/images/home.png";
 const HomePage = () => {
   return (
-    <div className="w-full page-container py-10 flex items-center px-10 justify-between">
+    <div className="w-full page-container flex items-center p-10 justify-between">
       <div className="w-[45%] flex flex-col gap-y-4">
         <div className="flex flex-col text-6xl">
           <span>Best Kids Academic</span>
