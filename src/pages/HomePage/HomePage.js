@@ -12,8 +12,10 @@ const HomePage = () => {
         <span className=" text-gray-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </span>
-        <div className="flex gap-x-2">
-          <div className="button rounded-lg">Get Started</div>
+        <div className="flex gap-x-2 items-center">
+          <div className="button rounded-lg border-2 border-primary">
+            Get Started
+          </div>
           <div className="button rounded-lg bg-white text-primary border-2 border-primary">
             Learn More
           </div>

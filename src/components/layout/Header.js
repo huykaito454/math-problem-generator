@@ -1,11 +1,19 @@
 import React from "react";
 import logoImg from "../../assets/images/logo.png";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className="flex items-center justify-between page-container w-full py-6">
       <div className="w-[8%]">
-        <img src={logoImg} alt="" className="w-16 cursor-pointer select-none" />
+        <img
+          src={logoImg}
+          alt=""
+          className="w-16 cursor-pointer select-none"
+          onClick={() => {
+            navigate("");
+          }}
+        />
       </div>
       <div className="w-[70%] flex items-center justify-center gap-x-10 text-xl">
         <NavLink
