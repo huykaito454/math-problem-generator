@@ -1,11 +1,16 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 const StudentPage = () => {
-  return <>
-    <button className="flex border-black w-8 h-16">
-
-    </button>
-  </>;
+  return (
+    <>
+      <NavLink
+        to={"/answer-question"}
+        className="flex w-full items-center justify-center page-container"
+      >
+        <div className="button">Do assignment</div>
+      </NavLink>
+    </>
+  );
 };
 
 export default StudentPage;
