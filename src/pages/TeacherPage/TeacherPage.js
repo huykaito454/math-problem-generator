@@ -24,15 +24,15 @@ const TeacherPage = () => {
   };
   const handleCreateQuestion = (values) => {
     const data = {
-      type: values.type,
-      // standard: `${values.grade}.${values.topic}.${values.level}`,
+      questionType: Number(values.type),
+      // skill: `${values.grade}.${values.topic}.${values.level}`,
+      skill: 1,
     };
     const check = handleValidObject(values);
     if (check !== false) setDataRequest([...dataRequest, data]);
+    dispatch(getQuestions(data));
   };
-  const handleRequest = async () => {
-    dispatch(getQuestions({ typeId: 1, topic: "bac" }));
-  };
+  const handleRequest = async () => {};
   return (
     <div className="w-full page-container p-10 flex flex-col items-center">
       <div className="p-16 pt-24 bg-primary text-5xl w-full text-white rounded-[40px] font-semibold">
