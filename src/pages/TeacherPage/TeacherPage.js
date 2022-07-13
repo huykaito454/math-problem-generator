@@ -1,9 +1,14 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { getQuestions } from "../../redux/questions/questionsSlice";
 const TeacherPage = () => {
   const { handleSubmit, register } = useForm();
   const [dataRequest, setDataRequest] = useState([]);
+  const question = useSelector((state) => state.questions);
+  const dispatch = useDispatch();
   const topic = ["OA", "NBT", "MD", "G"];
   const handleValidObject = (data) => {
     for (const [key, value] of Object.entries(data)) {
@@ -19,11 +24,14 @@ const TeacherPage = () => {
   };
   const handleCreateQuestion = (values) => {
     const data = {
-      ...values,
-      standard: `${values.grade}.${values.topic}.${values.level}`,
+      type: values.type,
+      // standard: `${values.grade}.${values.topic}.${values.level}`,
     };
-    const check = handleValidObject(data);
+    const check = handleValidObject(values);
     if (check !== false) setDataRequest([...dataRequest, data]);
+  };
+  const handleRequest = async () => {
+    dispatch(getQuestions({ typeId: 1, topic: "bac" }));
   };
   return (
     <div className="w-full page-container p-10 flex flex-col items-center">
@@ -96,7 +104,9 @@ const TeacherPage = () => {
               </div>
             ))}
         <div className="flex w-full justify-end">
-          <div className="button rounded-xl">Create</div>
+          <div className="button rounded-xl" onClick={handleRequest}>
+            Create
+          </div>
         </div>
       </form>
     </div>
