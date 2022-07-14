@@ -40,6 +40,14 @@ const Header = () => {
         >
           Student
         </NavLink>
+        <NavLink
+          to={"/topic"}
+          className={({ isActive }) =>
+            isActive ? "text-primary cursor-pointer" : "cursor-pointer"
+          }
+        >
+          Topic
+        </NavLink>
         <span className=" cursor-pointer">About</span>
         <span className=" cursor-pointer">Contact</span>
       </div>

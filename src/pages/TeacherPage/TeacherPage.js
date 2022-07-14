@@ -26,7 +26,7 @@ const TeacherPage = () => {
     const data = {
       questionType: Number(values.type),
       // skill: `${values.grade}.${values.topic}.${values.level}`,
-      skill: 1,
+      skill: Number(values.skill),
     };
     const check = handleValidObject(values);
     if (check !== false) setDataRequest([...dataRequest, data]);
@@ -52,6 +52,17 @@ const TeacherPage = () => {
             <option value={""}>Type</option>
             <option value={1}>Multi choice</option>
             <option value={2}>Multi select</option>
+          </select>
+          <select
+            className="px-10 bg-[#CCCCCC] outline-none rounded-xl"
+            {...register("skill")}
+          >
+            <option value={""}>Skill</option>
+            {new Array(1).fill(0).map((item, index) => (
+              <option key={index} value={index + 1}>
+                {index + 1}
+              </option>
+            ))}
           </select>
           <select
             className="px-10 bg-[#CCCCCC] outline-none rounded-xl"
@@ -87,6 +98,7 @@ const TeacherPage = () => {
               </option>
             ))}
           </select>
+
           <button className="button bg-green-400 rounded-xl">Add</button>
         </div>
         <span>Current questions</span>

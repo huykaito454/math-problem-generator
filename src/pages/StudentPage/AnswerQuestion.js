@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { API } from "../../config";
 const AnswerQuestion = () => {
   const [questions, setQuestions] = useState([]);
   const [index, setIndex] = useState(0);
+  const [answer, setAnswer] = useState();
   const getQuestion = async () => {
-    const res = await axios.get(API.getAPI("getQuestions"));
+    const res = await axios.get(API.getAPI("get-questions"));
     const dataHandle = handleOption(res.data.data);
     setQuestions(dataHandle);
     console.log(dataHandle);
@@ -28,8 +29,38 @@ const AnswerQuestion = () => {
     answers.forEach((item) => {
       item.classList.remove("active");
     });
-    console.log(answer);
     e.classList.add("active");
+    setAnswer(answer);
+  };
+  const handleSubmitQuestion = async (id) => {
+    try {
+      const res = await axios.get(API.getAPI("answer"), {
+        params: { id: id, answer: answer },
+      });
+      if (res.data.message === "Correct") {
+        toast.success(res.data.message, {
+          pauseOnHover: false,
+          delay: 0,
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      } else {
+        toast.error(res.data.message, {
+          pauseOnHover: false,
+          delay: 0,
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
+      const answers = document.querySelectorAll(".answer");
+      answers.forEach((item) => {
+        item.classList.remove("active");
+      });
+    } catch (error) {
+      toast.error(`Error`, {
+        pauseOnHover: false,
+        delay: 0,
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
   };
   useEffect(() => {
     getQuestion();
@@ -74,6 +105,7 @@ const AnswerQuestion = () => {
                 <button
                   className="rounded-xl button bg-slate-600 px-4 py-2 text-white"
                   onClick={() => {
+                    handleSubmitQuestion(questions[index].id);
                     if (index < questions.length - 1) setIndex(index + 1);
                     else setIndex(1);
                   }}
@@ -81,11 +113,11 @@ const AnswerQuestion = () => {
                   Next question
                 </button>
               </div>
-              <div className="count-down fixed bg-green-300 h-3 bottom-0 w-full rounded-t-lg max-w-[1440px] after:bg-white after:right-0 after:h-full after:absolute"></div>
+              {/* <div className="count-down fixed bg-green-300 h-3 bottom-0 w-full rounded-t-lg max-w-[1440px] after:bg-white after:right-0 after:h-full after:absolute"></div> */}
             </div>
           )}
         </div>
-        <div className="w-[22%] bg-red-400 shadow-lg rounded-xl">asdadasds</div>
+        <div className="w-[22%] bg-red-400 shadow-lg rounded-xl"></div>
       </div>
     </div>
   );
