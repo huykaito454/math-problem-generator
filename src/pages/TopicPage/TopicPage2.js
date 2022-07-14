@@ -1,7 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import ItemSkill from "./ItemSkill";
 
-const TopicPage = () => {
+const TopicPage2 = () => {
     const skills = [
         { name: "skill 1", Attempetd: "12", Correct: "0", Incorrect: "1", Score: "10", CAStandard: "4.OA.1" },
         { name: "skill 2", Attempetd: "NA", Correct: "NA", Incorrect: "NA", Score: "NA", CAStandard: "4.NPT.1" },
@@ -88,4 +88,4 @@ const TopicPage = () => {
     );
 };
 
-export default TopicPage;
+export default TopicPage2;
