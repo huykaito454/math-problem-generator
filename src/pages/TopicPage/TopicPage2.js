@@ -13,6 +13,11 @@ const TopicPage = () => {
         { name: "skill 8", Attempetd: "NA", Correct: "NA", Incorrect: "NA", Score: "NA", CAStandard: "4.NPT.1" },
         { name: "skill 9", Attempetd: "NA", Correct: "NA", Incorrect: "NA", Score: "NA", CAStandard: "4.NPT.1" },
         { name: "skill 10", Attempetd: "NA", Correct: "NA", Incorrect: "NA", Score: "NA", CAStandard: "4.NPT.1" },
+        { name: "skill 11", Attempetd: "NA", Correct: "NA", Incorrect: "NA", Score: "NA", CAStandard: "4.NPT.1" },
+        { name: "skill 12", Attempetd: "NA", Correct: "NA", Incorrect: "NA", Score: "NA", CAStandard: "4.NPT.1" },
+        { name: "skill 13", Attempetd: "NA", Correct: "NA", Incorrect: "NA", Score: "NA", CAStandard: "4.NPT.1" },
+        { name: "skill 14", Attempetd: "NA", Correct: "NA", Incorrect: "NA", Score: "NA", CAStandard: "4.NPT.1" },
+        { name: "skill 15", Attempetd: "NA", Correct: "NA", Incorrect: "NA", Score: "NA", CAStandard: "4.NPT.1" },
     ];
 
     return (
