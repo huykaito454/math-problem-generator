@@ -3,86 +3,53 @@
 @tailwind utilities;
 @layer base {
   body {
-    @apply font-body text-black px-1 bg-white;
+    @apply font-body text-black bg-white;
   }
 }
 @layer components {
-
-  
   .page-container {
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
   }
   .button {
-    @apply bg-[#ffaf5f] py-2 px-5 rounded-3xl text-white transition-all active:scale-90 cursor-pointer select-none;
-  }
-
-  .glass {
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.43);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(8.3px);
-    -webkit-backdrop-filter: blur(8.3px);
-    border: 1px solid rgba(255, 255, 255, 0.72);
-  }
-
-  // .glass:before{
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
-  //   filter: blur(10px);
-  // }
-
-  .count-down:after {
-    animation: shrinkdown 15s linear forwards;
-  }
-
-  .count-down {
-    animation: changecolor 15s linear forwards;
-  }
-
-  @keyframes changecolor {
-    50% {
-      background-color: orange;
-    }
-    90%,
-    100% {
-      background-color: red;
-    }
-  }
-
-  @keyframes shrinkdown {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 100%;
-    }
-  }
-
-  .go-back-button::before {
-    transition: width 1s ease-in-out;
-  }
-
-  .go-back-button:hover.go-back-button::before {
-    width: 100%;
-  }
-
-  @keyframes full {
-    100% {
-      width: 100%;
-    }
+    @apply bg-[#3b5be9] py-2 px-5 rounded-3xl text-white transition-all active:scale-90 cursor-pointer select-none;
   }
 }
 .Toastify__toast-container--top-right {
   margin-top: 4rem;
 }
-.active {
-  box-shadow: 0px 0px 20px 1px rgb(111, 238, 223);
+.card:nth-child(odd) {
+  background: white;
+  border: 2px solid #5373f2;
+  color: #5373f2;
+  .card-border {
+    border-color: #5373f2;
+  }
+}
+.card:nth-child(even) {
+  border: 2px solid #5373f2;
+
+  --tw-scale-x: 1.2;
+  --tw-scale-y: 1.2;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.rocket {
+  position: relative;
+  animation-name: example;
+  animation-duration: 0.8s;
+  // animation-delay: -10s;
+}
+
+@keyframes example {
+  0% {
+    left: 0px;
+    top: 550px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
 }

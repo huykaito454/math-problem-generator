@@ -4,8 +4,8 @@ import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
 const Header = () => {
   const navigate = useNavigate();
   return (
-    <header className="flex items-center justify-between page-container w-full py-6">
-      <div className="w-[8%]">
+    <header className="flex items-center page-container justify-between w-full py-4 bg-white ">
+      <div className="w-[230px] ">
         <img
           src={logoImg}
           alt=""
@@ -15,7 +15,7 @@ const Header = () => {
           }}
         />
       </div>
-      <div className="w-[70%] flex items-center justify-center gap-x-10 text-xl">
+      <div className=" flex items-center justify-center gap-x-10 text-xl text-gray-700">
         <NavLink
           to={"/"}
           className={({ isActive }) =>
@@ -38,7 +38,7 @@ const Header = () => {
             isActive ? "text-primary cursor-pointer" : "cursor-pointer"
           }
         >
-          Student
+          Courses
         </NavLink>
         <NavLink
           to={"/topic"}
@@ -46,13 +46,24 @@ const Header = () => {
             isActive ? "text-primary cursor-pointer" : "cursor-pointer"
           }
         >
-          Topic
+          Instructor
         </NavLink>
-        <span className=" cursor-pointer">About</span>
-        <span className=" cursor-pointer">Contact</span>
+        <NavLink
+          to={"/topic"}
+          className={({ isActive }) =>
+            isActive ? "text-primary cursor-pointer" : "cursor-pointer"
+          }
+        >
+          Contact
+        </NavLink>
       </div>
-      <div className="w-[10%]">
-        <div className="button">Login/Register</div>
+      <div className="w-[230px] flex items-center justify-end gap-x-2 text-lg">
+        <div className="button py-1 px-6 bg-white text-primary border-2 border-primary">
+          Sign in
+        </div>
+        <div className="button py-1 px-6 bg-primary border-2 border-primary">
+          Sign up
+        </div>
       </div>
     </header>
   );
