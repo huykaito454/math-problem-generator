@@ -6,7 +6,9 @@ module.exports = {
         body: ["Signika Negative", "sans-serif"],
       },
       colors: {
-        primary: "#ffaf5f",
+        primary: "#3b5be9",
+        secondary: "#5373f2",
+        tertiary: "#f6f7ff",
       },
     },
   },
